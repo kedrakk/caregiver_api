@@ -23,4 +23,10 @@ class NewsfeedController extends Controller
         $newsfeed->save();
         return $this->httpCreated($newsfeed, 'Newsfeed created');
     }
+
+    public function index()
+    {
+        $newsfeed = FirstAid::orderBy('name', 'asc')->get();
+        return $this->httpSuccess($newsfeed, 'Newsfeeds retrieved');
+    }
 }
