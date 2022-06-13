@@ -29,4 +29,13 @@ class NewsfeedController extends Controller
         $newsfeed = FirstAid::orderBy('name', 'asc')->get();
         return $this->httpSuccess($newsfeed, 'Newsfeeds retrieved');
     }
+
+    public function show($id)
+    {
+        $newsfeed = FirstAid::where('faid', $id)->first();
+        if (!$newsfeed) {
+            return $this->httpNotFoundError('Newsfeed not found');
+        }
+        return $this->httpSuccess($newsfeed, 'Newsfeed retrieved');
+    }
 }
