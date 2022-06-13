@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('/alarm', 'App\Http\Controllers\Api\AlarmController@store');
     Route::get('/alarm/{flag}', 'App\Http\Controllers\Api\AlarmController@show');
     Route::put('/alarm/{id}', 'App\Http\Controllers\Api\AlarmController@update');
+
+    Route::get('/hospitals/{lat}/{lng}', 'App\Http\Controllers\Api\HospitalController@getHospitals');
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
