@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('first_aids', function (Blueprint $table) {
-            $table->id('faid');
+            $table->id();
             $table->string('name', 500);
             $table->string('instruction', 1000);
             $table->string('caution', 1000);

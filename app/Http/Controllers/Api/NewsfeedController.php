@@ -32,7 +32,7 @@ class NewsfeedController extends Controller
 
     public function show($id)
     {
-        $newsfeed = FirstAid::where('faid', $id)->first();
+        $newsfeed = FirstAid::findOrFail($id);
         if (!$newsfeed) {
             return $this->httpNotFoundError('Newsfeed not found');
         }

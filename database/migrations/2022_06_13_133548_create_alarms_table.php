@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('alarms', function (Blueprint $table) {
-            $table->id('alid');
+            $table->id();
             $table->time('alarm_time');
             $table->bigInteger('flag_id')->unsigned();
             $table->timestamps();
