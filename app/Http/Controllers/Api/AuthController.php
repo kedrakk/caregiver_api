@@ -40,7 +40,7 @@ class AuthController extends Controller
             'contact' => $request->contact,
             'password' => $password,
         ]);
-        $token = $user->createToken('PersonalAccessToken');
-        return $this->httpCreated($token->accessToken, 'Register success');
+        // $token = $user->createToken('PersonalAccessToken');
+        return $this->httpCreated($user, 'Register success');
     }
 }
