@@ -43,4 +43,11 @@ class AuthController extends Controller
         // $token = $user->createToken('PersonalAccessToken');
         return $this->httpCreated($user, 'Register success');
     }
+
+    //logout
+    public function logout(Request $request)
+    {
+        auth()->guard('api')->user()->token()->revoke();
+        return $this->httpSuccess(null, 'Logout success');
+    }
 }

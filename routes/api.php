@@ -28,6 +28,8 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::put('/alarm/{id}', 'App\Http\Controllers\Api\AlarmController@update');
 
     Route::get('/hospitals/{lat}/{lng}', 'App\Http\Controllers\Api\HospitalController@getHospitals');
+
+    Route::post('/logout', 'App\Http\Controllers\Api\AuthController@logout');
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
