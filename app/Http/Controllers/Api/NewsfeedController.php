@@ -38,4 +38,17 @@ class NewsfeedController extends Controller
         }
         return $this->httpSuccess($newsfeed, 'Newsfeed retrieved');
     }
+
+    public function search(Request $request)
+    {
+        if ($request->name == "all") {
+            $newsfeed = FirstAid::all();
+        } else {
+            $newsfeed = FirstAid::where('name', 'like', '%' . $request->name . '%')->get();
+        }
+        if (!$newsfeed) {
+            return $this->httpNotFoundError('Newsfeed not found');
+        }
+        return $this->httpSuccess($newsfeed, 'Newsfeeds retrieved');
+    }
 }

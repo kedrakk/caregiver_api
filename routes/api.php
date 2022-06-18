@@ -22,9 +22,10 @@ Route::post('/login', 'App\Http\Controllers\Api\AuthController@login');
 Route::post('/newsfeed', 'App\Http\Controllers\Api\NewsfeedController@store');
 Route::get('/newsfeed', 'App\Http\Controllers\Api\NewsfeedController@index');
 Route::get('/newsfeed/{id}', 'App\Http\Controllers\Api\NewsfeedController@show');
+Route::get('/newsfeed/search/{name}', 'App\Http\Controllers\Api\NewsfeedController@search');
 
 Route::post('/alarm', 'App\Http\Controllers\Api\AlarmController@store');
-Route::get('/alarm/{flag}', 'App\Http\Controllers\Api\AlarmController@show');
+Route::get('/alarm', 'App\Http\Controllers\Api\AlarmController@show');
 Route::put('/alarm/{id}', 'App\Http\Controllers\Api\AlarmController@update');
 
 Route::get('/hospitals/{lat}/{lng}', 'App\Http\Controllers\Api\HospitalController@getHospitals');

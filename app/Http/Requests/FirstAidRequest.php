@@ -27,7 +27,7 @@ class FirstAidRequest extends FormRequest
             'name' => 'required|string|max:500',
             'instruction' => 'required|string|max:1000',
             'caution' => 'required|string|max:1000',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'photo' => 'required|string',
         ];
     }
 

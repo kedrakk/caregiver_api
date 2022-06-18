@@ -23,9 +23,9 @@ class AlarmController extends Controller
     }
 
     //show
-    public function show(int $flag)
+    public function show()
     {
-        $alarm = Alarm::where('flag_id', $flag)->get();
+        $alarm = Alarm::get();
         if ($alarm) {
             return $this->httpSuccess($alarm, 'Alarm found');
         }
