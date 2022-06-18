@@ -14,7 +14,7 @@ class HospitalController extends Controller
 
     public function getHospitals($lat, $lng)
     {
-        $hospitals = Hospital::whereRaw("ST_Distance_Sphere(point(longitude, latitude), point($lng, $lat)) < 5000")->get();
+        $hospitals = Hospital::whereRaw("ST_Distance_Sphere(point(longitude, latitude), point($lng, $lat)) < 5000")->latest(3)->get();
         return $this->httpSuccess($hospitals, 'Nearby Hospitals retrieved');
     }
 }
