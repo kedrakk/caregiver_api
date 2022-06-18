@@ -21,9 +21,9 @@ class AuthController extends Controller
     {
         $credentials = $request->validated();
         if (auth()->attempt($credentials)) {
-            $token = auth()->user()->createToken('PersonalAccessToken')->accessToken;
+            // $token = auth()->user()->createToken('PersonalAccessToken')->accessToken;
             $user = auth()->user();
-            $user->token = $token;
+            // $user->token = $token;
             return $this->httpCreated($user, 'Login success');
         } else {
             return $this->httpUnauthorizedError('Invalid username or password');
@@ -47,7 +47,7 @@ class AuthController extends Controller
     //logout
     public function logout(Request $request)
     {
-        auth()->guard('api')->user()->token()->revoke();
+        // auth()->guard('api')->user()->token()->revoke();
         return $this->httpSuccess(null, 'Logout success');
     }
 }
